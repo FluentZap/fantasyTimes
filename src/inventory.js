@@ -17,6 +17,41 @@ export class Inventory{
             this.items.push(new Item(element));
         });  
     }
+
+    addRandomItem(){
+        let itemTable = [
+            {
+                name: "Sword",
+                weight: "12",
+                value:  34,
+                damage: 50,
+                damageType: "Physical"
+            },
+            {
+                name: "Shield",
+                weight: 20,
+                value:  34,
+                damage: 0,
+                damageType: ""
+            },
+            {
+                name: "Stick",
+                weight: 2,
+                value:  1,
+                damage: 150,
+                damageType: "Magical"
+            },
+            {
+                name: "Sword",
+                weight: 5,
+                value:  0,
+                damage: 2,
+                damageType: "Physical"
+            }
+        ]
+        let chosen = Math.floor(Math.random() * itemTable.length);
+        this.items.push(itemTable[chosen]);       
+    }
 }
 
 export class Item {
@@ -28,7 +63,6 @@ export class Item {
         this.damageType = "Physical"
         Object.assign(this, stats)
     }
-
-
+    
 }
 
