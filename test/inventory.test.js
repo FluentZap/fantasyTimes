@@ -5,26 +5,20 @@ import { isTSAnyKeyword, exportAllDeclaration } from '@babel/types';
 import {Inventory, Item} from '../src/inventory';
 
 describe('Inventory', function () {
-let knight;
-  beforeEach(function(){
-    knight = new Character({
-      });
-  });
   it('inventory constructor', function(){
-    knight = new Character({
-        inventory: new Inventory([
-        {name: "Sword", weight: 12}, 
-        {name: "Shield", weight: 20}]),
-    });
+    let knight = new Character();
+    knight.inventory.addItems([
+      {name: "Sword", weight: 12}, 
+      {name: "Shield", weight: 20}]);      
     expect(knight.inventory.items[0].name).toEqual("Sword");
-    expect(knight.inventory.items[0].damageType).toEqual("Phyiscal");
+    expect(knight.inventory.items[0].damageType).toEqual("Physical");
   });
 
   it('inventory add item', function(){
-    knight = new Character();   
+    let knight = new Character();   
     knight.inventory.addItem({name: "Sword", weight:12, value:0, damage:1, damageType: "Physical"})
     expect(knight.inventory.items[0].name).toEqual("Sword");
-    expect(knight.inventory.items[0].damageType).toEqual("Phyiscal");
+    expect(knight.inventory.items[0].damageType).toEqual("Physical");
   });
 
 });

@@ -1,3 +1,5 @@
+import { Inventory } from "./inventory";
+
 class Statistics {
   constructor(stats)
   {
@@ -10,6 +12,7 @@ class Statistics {
     this.race = "Blob";
     this.status = "Alive";
     this.allegiance = "None";
+    this.inventory = new Inventory();
     Object.assign(this, stats);
     this.healthCurrent = this.healthMax = Math.floor(this.vitality * (0.75 + this.level / 4));
   }
